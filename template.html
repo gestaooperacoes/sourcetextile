@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ficha técnica do produto — Sourcetextile</title>
+  <link rel="stylesheet" href="app/css/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="page-header">
+      <p class="eyebrow">Sourcetextile</p>
+      <h1>Ficha técnica do produto</h1>
+      <p class="page-description">Seleciona a peça e preenche apenas os campos relevantes. A aplicação gera descrições standard por zona — Confeção, Embalagem e Corte.</p>
+    </header>
+
+    <main class="main-content">
+      <section id="selectionScreen" class="screen">
+        <div class="screen-tabs" role="tablist">
+          <button id="tabTypes" type="button" class="tab active" role="tab" aria-selected="true">Nova ficha</button>
+          <button id="tabSaved" type="button" class="tab" role="tab" aria-selected="false">Fichas guardadas</button>
+        </div>
+
+        <div id="typesPanel">
+          <div class="section-bar">
+            <h2><span class="step-number">1</span> Escolher o tipo de peça</h2>
+          </div>
+          <div id="typeGrid" class="type-grid"></div>
+        </div>
+
+        <div id="savedPanel" class="hidden">
+          <div class="section-bar">
+            <h2><span class="step-number">✓</span> Fichas guardadas</h2>
+          </div>
+          <input id="savedFilter" type="text" class="saved-filter" placeholder="Filtrar por nome da ficha...">
+          <div id="savedList" class="saved-list"></div>
+        </div>
+      </section>
+
+      <section id="formScreen" class="screen hidden">
+        <div class="form-topbar">
+          <button id="backButton" type="button" class="secondary">← Voltar</button>
+          <h2 id="formTitle" class="form-title"></h2>
+          <div class="form-topbar-actions">
+            <button id="saveButton" type="button" class="secondary">Guardar ficha</button>
+            <button id="clearButton" type="button" class="secondary">Limpar rascunho</button>
+          </div>
+        </div>
+
+        <details id="formHeader" class="card header-details">
+          <summary>Cabeçalho <span class="muted-inline">(opcional — nome, referência, versão…)</span></summary>
+          <div class="header-grid">
+            <label class="input-label" for="headerNome">Nome da ficha
+              <input id="headerNome" type="text">
+            </label>
+            <label class="input-label" for="headerReferencia">Referência do artigo
+              <input id="headerReferencia" type="text">
+            </label>
+            <label class="input-label" for="headerCliente">Cliente
+              <input id="headerCliente" type="text">
+            </label>
+            <label class="input-label" for="headerVersao">Versão
+              <input id="headerVersao" type="text">
+            </label>
+            <label class="input-label" for="headerGestora">Gestora de produto
+              <input id="headerGestora" type="text">
+            </label>
+            <label class="input-label" for="headerData">Data
+              <input id="headerData" type="date">
+            </label>
+          </div>
+        </details>
+
+        <form id="fichaForm">
+          <div id="formContainer"></div>
+          <div class="generate-bar">
+            <p class="autosave-note">O rascunho é guardado automaticamente neste computador.</p>
+            <button id="generateButton" type="button" class="primary">Gerar descrição</button>
+          </div>
+        </form>
+
+        <section id="resultsPanel" class="results-panel card hidden">
+          <div class="results-header">
+            <h2><span class="step-number">2</span> Texto gerado</h2>
+            <div class="result-controls">
+              <div class="version-toggle" role="group" aria-label="Tipo de texto">
+                <button id="versionSimple" type="button" class="segmented">Texto simples</button>
+                <button id="versionRich" type="button" class="segmented active">Texto formatado</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="output-panels">
+            <div class="output-panel">
+              <div class="output-panel-header">
+                <h3>Confeção</h3>
+                <button id="copyConfeccao" type="button" class="secondary">Copiar</button>
+              </div>
+              <div id="outputConfeccao" class="output-box"></div>
+            </div>
+            <div class="output-panel">
+              <div class="output-panel-header">
+                <h3>Embalagem</h3>
+                <button id="copyEmbalagem" type="button" class="secondary">Copiar</button>
+              </div>
+              <div id="outputEmbalagem" class="output-box"></div>
+            </div>
+            <div class="output-panel">
+              <div class="output-panel-header">
+                <h3>Corte</h3>
+                <button id="copyCorte" type="button" class="secondary">Copiar</button>
+              </div>
+              <div id="outputCorte" class="output-box"></div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="app-credit">
+      <span class="credit-made">Created by</span>
+      <span class="credit-logo">
+        <svg class="kaizen-mark" viewBox="0 0 46 34" role="img" aria-label="Kaizen Institute">
+          <!-- bandeira: paralelogramo dividido na diagonal — vermelho (cima) / azul-marinho (baixo) -->
+          <polygon points="13,2 44,2 2,32" fill="#E1051E"></polygon>
+          <polygon points="44,2 33,32 2,32" fill="#0E2C56"></polygon>
+          <line x1="2" y1="32" x2="44" y2="2" stroke="#FFFFFF" stroke-width="2.4"></line>
+        </svg>
+        <span class="kaizen-word">
+          <span class="kaizen-name">KAIZEN<sup>™</sup></span>
+          <span class="kaizen-sub">INSTITUTE</span>
+        </span>
+      </span>
+    </footer>
+  </div>
+
+  <script src="app/data/campos.js"></script>
+  <script src="app/js/sketches.js"></script>
+  <script src="app/js/storage.js"></script>
+  <script src="app/js/generator.js"></script>
+  <script src="app/js/app.js"></script>
+</body>
+</html>

@@ -126,10 +126,13 @@ const Storage = {
 
   async upsertSaved(entry) {
     if (!this._client) return this._upsertSavedLocal(entry);
+    // Sem autenticação real, quem gravou fica registado a partir do campo
+    // "Gestora de produto" do cabeçalho (preenchido à mão pela utilizadora).
+    const updatedBy = (entry.header && entry.header.gestora) || 'Não especificada';
     const { error } = await this._client
       .from(this._table)
       .upsert(
-        { nome: entry.name, tipo_peca: entry.type, header: entry.header, form: entry.form },
+        { nome: entry.name, tipo_peca: entry.type, header: entry.header, form: entry.form, updated_by: updatedBy },
         { onConflict: 'nome,tipo_peca' }
       );
     if (error) console.warn('Não foi possível guardar a ficha:', error);

@@ -10,7 +10,6 @@
   <div class="page-shell">
     <header class="page-header">
       <div id="authStatus" class="auth-status hidden">
-        <span id="authEmail"></span>
         <button id="signOutButton" type="button" class="secondary">Sair</button>
       </div>
       <p class="eyebrow">Sourcetextile</p>
@@ -21,22 +20,14 @@
     <main class="main-content">
       <section id="loginScreen" class="screen">
         <div id="loginCard" class="card login-card">
-          <h2>Iniciar sessão</h2>
-          <p class="muted-inline">Introduz o teu email Kaizen ou Sourcetextile para receberes um código de acesso.</p>
+          <h2>Acesso à ficha técnica</h2>
+          <p class="muted-inline">Introduz a password de acesso partilhada pela Sourcetextile.</p>
 
           <div id="loginStepEmail">
-            <label class="input-label" for="loginEmail">Email
-              <input id="loginEmail" type="email" autocomplete="email" placeholder="nome@kaizen.com">
+            <label class="input-label" for="loginEmail">Password
+              <input id="loginEmail" type="password" autocomplete="current-password">
             </label>
-            <button id="loginSendButton" type="button" class="primary">Enviar código</button>
-          </div>
-
-          <div id="loginStepCode" class="hidden">
-            <label class="input-label" for="loginCode">Código (6 dígitos)
-              <input id="loginCode" type="tel" inputmode="numeric" autocomplete="one-time-code" maxlength="6">
-            </label>
-            <button id="loginVerifyButton" type="button" class="primary">Confirmar</button>
-            <button id="loginBackButton" type="button" class="secondary">Usar outro email</button>
+            <button id="loginSendButton" type="button" class="primary">Entrar</button>
           </div>
 
           <p id="loginStatus" class="muted-inline"></p>

@@ -873,7 +873,8 @@ textarea {
   padding: var(--s2);
   white-space: pre-wrap;
   overflow-wrap: break-word;
-  font-size: 0.92rem;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size: 12pt;
   line-height: 1.6;
 }
 
@@ -883,7 +884,7 @@ textarea {
 
 .output-box h3 {
   margin: var(--s1) 0 2px;
-  font-size: 0.95rem;
+  font-size: 12pt;
 }
 
 .output-box h3:first-child,
